@@ -12,7 +12,7 @@ This repository contains documentation on setting up a solution that leverages A
 ## Implementation Phases
 
 ### Phase 1: Setup AWS S3 Pre-signed URL
-![](https://s10.aconvert.com/convert/p3r68-cdx67/adlod-rqjnm-001.jpg)
+
 
 1. Create an S3 bucket.
 2. Upload a file to the bucket.
