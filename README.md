@@ -12,7 +12,7 @@ This repository contains documentation on setting up a solution that leverages A
 ## Implementation Phases
 
 ### Phase 1: Setup AWS S3 Pre-signed URL
-![](https://ibb.co/VvnZsZP)
+![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR-9TbnCpe4PySqgKg9sS4CpJN-4-LYDFuXJuEZIZ-wt_InCWV0)
 
 1. Create an S3 bucket.
 2. Upload a file to the bucket.
