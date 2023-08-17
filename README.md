@@ -18,7 +18,7 @@ This repository contains documentation on setting up a solution that leverages A
 3. Generate a pre-signed URL for the uploaded file.
 
 ### Phase 2: Setup AWS Cognito for Authentication
-![](https://github.com/pathepunikhil/AWS-/issues/1#issuecomment-1681597853)
+![](https://github.com/pathepunikhil/AWS-/issues/1#issuecomment-1681597853.png)
 1. Create a Cognito user pool.
 2. Create a Cognito identity pool.
 3. Create a Cognito user group.
