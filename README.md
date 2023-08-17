@@ -19,6 +19,8 @@ This repository contains documentation on setting up a solution that leverages A
 3. Generate a pre-signed URL for the uploaded file.
 
 ### Phase 2: Setup AWS Cognito for Authentication
+![](https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/scenario-identity-pool.png)
+
 1. Create a Cognito user pool.
 2. Create a Cognito identity pool.
 3. Create a Cognito user group.
@@ -30,6 +32,7 @@ This repository contains documentation on setting up a solution that leverages A
 3. Use the pre-signed URL to access the S3 bucket file.
 
 ### Phase 4: Encrypt Data with AWS KMS Before Uploading to S3
+![](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*8Q371KBPic85yeAq.png)
 
 1. Create a KMS key.
 2. Define a KMS key policy to enable encryption and decryption for Cognito users.
