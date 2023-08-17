@@ -12,7 +12,7 @@ This repository contains documentation on setting up a solution that leverages A
 ## Implementation Phases
 
 ### Phase 1: Setup AWS S3 Pre-signed URL
-![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR-9TbnCpe4PySqgKg9sS4CpJN-4-LYDFuXJuEZIZ-wt_InCWV0)
+![](https://d2908q01vomqb2.cloudfront.net/e1822db470e60d090affd0956d743cb0e7cdf113/2022/10/13/Diagram-of-how-presigned-url-can-help-identify-access-1024x729.png)
 
 1. Create an S3 bucket.
 2. Upload a file to the bucket.
