@@ -12,14 +12,13 @@ This repository contains documentation on setting up a solution that leverages A
 ## Implementation Phases
 
 ### Phase 1: Setup AWS S3 Pre-signed URL
-![](https://github.com/pathepunikhil/AWS-/issues/1#issuecomment-1681597853)
 
 1. Create an S3 bucket.
 2. Upload a file to the bucket.
 3. Generate a pre-signed URL for the uploaded file.
 
 ### Phase 2: Setup AWS Cognito for Authentication
-
+![](https://github.com/pathepunikhil/AWS-/issues/1#issuecomment-1681597853)
 1. Create a Cognito user pool.
 2. Create a Cognito identity pool.
 3. Create a Cognito user group.
