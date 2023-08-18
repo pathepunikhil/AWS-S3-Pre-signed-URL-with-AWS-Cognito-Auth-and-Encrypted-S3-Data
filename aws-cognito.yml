@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Amazon Cognito User Pool with Hosted UI and Custom Domain CloudFormation Stack
+
+Resources:
+  MyUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: CognitoUserPool
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: true
+          RequireUppercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+      Schema:
+        - AttributeDataType: String
+          Name: email
+          Required: true
+
+  MyUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: MyCognitoAppClient
+      UserPoolId: !Ref MyUserPool
+      GenerateSecret: false
+      SupportedIdentityProviders:
+        - COGNITO
+      AllowedOAuthFlows:
+        - code
+        - implicit
+      AllowedOAuthScopes:
+        - openid
+        - email
+        - profile
+      CallbackURLs:
+        - http://localhost:8000/login_in.html
+      LogoutURLs:
+        - http://localhost:8000/logout_out.html
+
+  MyUserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: mydomainthaer
+      UserPoolId: !Ref MyUserPool
+
+Outputs:
+  UserPoolId:
+    Description: The ID of the created Amazon Cognito User Pool.
+    Value: !Ref MyUserPool
+
+  UserPoolClientId:
+    Description: The ID of the created Amazon Cognito User Pool Client (App Client).
+    Value: !Ref MyUserPoolClient
+
+  UserPoolDomain:
+    Description: The custom domain for the Amazon Cognito Hosted UI.
+    Value: !Ref MyUserPoolDomain
+
+CloudShell
+Feedback
+Language
+© 2023, Amazon Web Services India Private Limited or its affiliates.
+Privacy
+Terms
+Cookie preferences

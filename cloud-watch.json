@@ -1,0 +1,182 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudWatch Dashboard Example
+
+Resources:
+  MyCloudWatchDashboard:
+    Type: 'AWS::CloudWatch::Dashboard'
+    Properties:
+      DashboardName: CustomDashboard
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/EC2", "CPUUtilization", "InstanceId", "i-0c3e478ab0cd68fcf"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "EC2 CPU Utilization"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 6,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/EC2", "NetworkIn", "InstanceId", "i-0c3e478ab0cd68fcf"],
+                  ["AWS/EC2", "NetworkOut", "InstanceId", "i-0c3e478ab0cd68fcf"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "EC2 Network Traffic"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 12,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/EC2", "DiskReadBytes", "InstanceId", "i-0c3e478ab0cd68fcf"],
+                  ["AWS/EC2", "DiskWriteBytes", "InstanceId", "i-0c3e478ab0cd68fcf"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "EC2 Disk I/O"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 18,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/EC2", "MemoryUtilization", "InstanceId", "i-0c3e478ab0cd68fcf"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "EC2 Memory Utilization"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 24,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/EC2", "StatusCheckFailed_Instance", "InstanceId", "i-0c3e478ab0cd68fcf"],
+                  ["AWS/EC2", "StatusCheckFailed_System", "InstanceId", "i-0c3e478ab0cd68fcf"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "EC2 Status Checks"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 30,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/EC2", "InstanceCount", "InstanceId", "i-0c3e478ab0cd68fcf"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "EC2 Instance Count"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 36,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/S3", "AllRequests", "BucketName", "teambucketsonix"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "S3 Request Metrics"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 42,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/S3", "BucketSizeBytes", "BucketName", "teambucketsonix"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "S3 Bucket Size"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 48,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/Cognito", "SignInSuccesses", "UserPoolId", "ap-south-1_jnE2b2nhw"],
+                  ["AWS/Cognito", "SignUpSuccesses", "UserPoolId", "ap-south-1_jnE2b2nhw"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "Cognito User Metrics"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 54,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/Cognito", "UserPoolTriggers", "UserPoolId", "ap-south-1_jnE2b2nhw"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "Cognito User Pool Triggers"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 60,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  ["AWS/Cognito", "FailedSignInAttempts", "UserPoolId", "ap-south-1_jnE2b2nhw"]
+                ],
+                "view": "timeSeries",
+                "region": "ap-south-1",
+                "title": "Cognito Failed Authentication Attempts"
+              }
+            }
+          ]
+        }

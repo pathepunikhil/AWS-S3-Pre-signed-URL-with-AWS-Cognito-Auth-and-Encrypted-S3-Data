@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  MyS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: teambucketsonic
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+              KMSMasterKeyID: !Ref MyKMSKey
+
+  MyKMSKey:
+    Type: 'AWS::KMS::Key'
+    Properties:
+      Description: My KMS Key
+      KeyPolicy:
+        Version: '2012-10-17'
+        Id: key-default-1
+        Statement:
+          - Sid: Enable IAM User Permissions
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+            Action: 'kms:*'
+            Resource: '*'
+          - Sid: Allow use of the key for S3 encryption
+            Effect: Allow
+            Principal:
+              Service: s3.amazonaws.com
+            Action: 'kms:Encrypt'
+            Resource: '*'
+          - Sid: Allow attachment of persistent resources
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:user/tharun
+            Action:
+              - 'kms:CreateGrant'
+            Resource: '*'
+            Condition:
+              Bool:
+                'kms:GrantIsForAWSResource': 'true'
+  MyKMSKeyAlias:
+    Type: 'AWS::KMS::Alias'
+    Properties:
+      AliasName: alias/my-kms-key-alias
+      TargetKeyId: !Ref MyKMSKey
+
+CloudShell
+Feedback
+Language
+© 2023, Amazon Web Services India Private Limited or its affiliates.
+Privacy
+Terms
+Cookie preferences
